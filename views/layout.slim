@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+    title= @title || "Sinatra MicroBlog"
+  body
+    div class="container" style="width: 500px;"
+      div class="row text-center" style="margin-top:20px;"
+        a href="/" style="font-size: 30px;" Selise Microblog
+      == yield

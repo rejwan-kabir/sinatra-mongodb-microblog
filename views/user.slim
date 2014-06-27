@@ -1,0 +1,13 @@
+h1 #{@user.name}
+div class="row"
+  form action="/blog/create" method="POST" role="form"
+    input type="hidden" name="user_id" value="#{@user.id}"
+    textarea class="form-control" name="new_blog[content]" value="#{@new_blog.content}" rows="5" cols="18" == @new_blog.content
+    input style="float: right; margin-top:5px;" type="submit" value="Post !" class="btn btn-default"
+div class="row"
+  -if @all_blog.any?
+    ul.all_blog class="list-group"
+    - @all_blog.each do |blog|
+      == slim :blog, :locals => {blog: blog, user_id: "#{@user.id}"}
+  - else
+    p Blog List is empty.

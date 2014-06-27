@@ -1,0 +1,14 @@
+div class="row"
+  div class="col-lg-12"
+    form action="/" method="POST" class="input-group" style="margin: 20px 0;"
+      input.name type="text" name="user[name]" value="#{@user.name}" class="form-control"
+      span class="input-group-btn"
+        input type="submit" value="Create New User" class="btn btn-default"
+div class="row"
+  div class="col-lg-12"
+    -if @all_user.any?
+      ul.all_user class="list-group"
+        - @all_user.each do |user|
+          == slim :user_link, :locals => {user: user}
+    - else
+      p No User Created !
